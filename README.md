@@ -1,20 +1,21 @@
+About this fork/branch
+================
+This branch is "maintained" by jollailija (contact: jollailija [at] gmail.com)  
+I have removed the DropBox support completely. However, all other functions (except translations, I broke those) including exporting and importing locally should work.
+
+Who is this for?  
+Well, those who don't like cloud services or just want to build the app without the API key.  
+
 TaskList
 ================
 A small but mighty program to manage your daily tasks.
 
 Developing
 ================
-Have a look here to prepare your build environment for TaskList: https://github.com/Armadill0/harbour-tasklist/wiki
+Have a look here to prepare your build environment for TaskList: https://github.com/Armadill0/harbour-tasklist/wiki  
 
-Pull-Requests
-================
-Pull-Requests are always welcome. But please respect the following rules to make the life of the collaborators easier. ;-)
-- All Pull-Requests have to be sent to the "next" branch!
-- Please send one pull request per Github issue, if possible.
-- Don't use fixed pixel sizes for elements, anchors or anything else in the code.
-- Don't remove features (neither small ones) without asking to do so.
-- If there's a ticket which has been solved by a commit, please mark it with the default Github referencing possibilities.
-- Don't use colored text or UI elements. Please read the SailfishOS Design Giudelines if not already done: https://sailfishos.org/design/
+NOTE:  
+You don't need the private key to build this branch, since the DropBox support has been removed.
 
 Contact
 ================
@@ -52,7 +53,6 @@ Features
     - configurable remorse item times
 - multiple languages supported (depending on system language), for more information see below
 - app can be started to background, in list view or to default list by setting
-- sync your data to your Dropbox account
 - copy list to clipboard for usage in other applications
 
 Internationalization
@@ -61,14 +61,6 @@ Internationalization
 - translations are managed via Transifex: https://www.transifex.com/projects/p/tasklist/
     - Feel free to request new languages or complete existing ones there. :-)
     - Every contributor will be mentioned in the About page!
-
-Roadmap for Version 2.0
-================
-see here: https://github.com/Armadill0/harbour-tasklist/milestones/2.0
-
-Roadmap for Version 3.0
-================
-see here: https://github.com/Armadill0/harbour-tasklist/milestones/3.0
 
 Contributors
 ================

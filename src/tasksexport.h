@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QStringList>
 
-#include <qtdropbox.h>
-
 class TasksExport : public QObject
 {
     Q_OBJECT
@@ -21,16 +19,6 @@ public:
     Q_INVOKABLE QString load(const QString &path) const;
     Q_INVOKABLE QStringList sdcardPath(const QString &path) const;
     Q_INVOKABLE QStringList mountPoints() const;
-
-    Q_INVOKABLE QString dropboxAuthorizeLink();
-    /* returns 3 elements: Dropbox username, OAuth token secret and OAuth token */
-    Q_INVOKABLE QStringList getDropboxCredentials();
-    Q_INVOKABLE void setDropboxCredentials(const QString &token, const QString &tokenSecret);
-    /* returns revision hash of the uploaded file or empty string if fails */
-    Q_INVOKABLE QString uploadToDropbox(const QString &tasks);
-    /* { revision hash, JSON data } */
-    Q_INVOKABLE QStringList downloadFromDropbox();
-    Q_INVOKABLE QString getRevision();
 
     QString fileName() const {
         return mFileName;
@@ -50,12 +38,7 @@ public slots:
     }
 
 private:
-    void initDropbox();
-    void exitDropbox();
-
     QString mFileName;
-    QDropbox *dropbox;
-    QString dropboxPath;
 };
 
 #endif // TASKSEXPORT_H

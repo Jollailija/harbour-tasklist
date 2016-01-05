@@ -89,7 +89,8 @@ Dialog {
             Label {
                 //: TaskList description
                 //% "A small but mighty program to manage your daily tasks."
-                text: qsTrId("app-description")
+                text: "This is a no-DropBox-fork made by jollailija. Contact me at jollailija@gmail.com"
+                + qsTrId("app-description")
                 width: parent.width - Theme.horizontalPageMargin * 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap

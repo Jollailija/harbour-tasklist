@@ -381,27 +381,6 @@ Dialog {
                 value: taskListWindow.remorseOnMultiAdd
                 valueText: composeRemorseSliderText(value)
             }
-
-            SectionHeader {
-                //: headline for Dropbox options
-                //% "Dropbox options"
-                text: qsTrId("dropbox-options-label")
-            }
-
-            Button {
-                id: signOutDropbox
-                width: parent.width * 0.75
-                anchors.horizontalCenter: parent.horizontalCenter
-                enabled: taskListWindow.checkDropboxCredentials()
-                //: Button to log out from the dropbox account
-                //% "Dropbox log out"
-                text: qsTrId("dropbox-logout-label")
-                onClicked: {
-                    taskListWindow.removeDropboxCredentials()
-                    signOutDropbox.enabled = false
-                }
-            }
-
             Rectangle {
                 width: parent.width
                 height: Theme.paddingLarge

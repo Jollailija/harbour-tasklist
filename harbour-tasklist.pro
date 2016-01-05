@@ -28,20 +28,7 @@ OTHER_FILES += qml/harbour-tasklist.qml \
     qml/pages/ExportPage.qml \
     qml/pages/TagPage.qml \
     qml/pages/TagDialog.qml \
-    qml/pages/sync/DropboxAuth.qml \
-    qml/pages/sync/DropboxSync.qml \
     qml/pages/HelpPage.qml
-
-include(third_party/QtDropbox/qtdropbox.pri)
-
-!defined(TASKLIST_DROPBOX_APPKEY, var) {
-    error("Please provide Dropbox appkey as argument of qmake, e.g. 'qmake TASKLIST_DROPBOX_APPKEY=<your appkey here>'")
-}
-!defined(TASKLIST_DROPBOX_SHAREDSECRET, var) {
-    error("Please provide Dropbox shared secret as argument of qmake, e.g. 'qmake TASKLIST_DROPBOX_SHAREDSECRET=<your secret here>'")
-}
-
-DEFINES += TASKLIST_DROPBOX_APPKEY=$$TASKLIST_DROPBOX_APPKEY TASKLIST_DROPBOX_SHAREDSECRET=$$TASKLIST_DROPBOX_SHAREDSECRET
 
 localization.files = localization
 localization.path = /usr/share/$${TARGET}
