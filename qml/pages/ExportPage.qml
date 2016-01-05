@@ -58,7 +58,7 @@ Page {
         if (list.length < 1) {
             //: informing user that no former exports are available
             //% "No files for import available."
-            importFilesModel.append({fileName: qsTrId("no-importfiles-placeholder"), elementId: 0});
+            importFilesModel.append({fileName: "No files for import available.", elementId: 0});
         } else {
             for (var i = 0; i < list.length; ++i)
                 importFilesModel.append({fileName: list[i], elementId: i + 1});
@@ -75,12 +75,12 @@ Page {
         var internalStorage = "/media/sdcard/"
         targetModel.clear()
         //% "Internal storage"
-        targetModel.append({"name": qsTrId("internal-storage-label"), "path": StandardPaths.documents})
+        targetModel.append({"name": "Internal storage", "path": StandardPaths.documents})
         var sdcardArray = exporter.sdcardPath(internalStorage)
         for (var i = 0; i < sdcardArray.length; i++)
             //: Label for SD-Cards where %1 represents the increasing number for each card
             //% "SD-Card %1"
-            targetModel.append({"name": qsTrId("sdcard-label").arg(i + 1), "path": internalStorage + sdcardArray[i]})
+            targetModel.append({"name": "SD-Card %1".arg(i + 1), "path": internalStorage + sdcardArray[i]})
     }
 
     onDirectoryChanged: {
@@ -109,19 +109,19 @@ Page {
             PageHeader {
                 //: export/import page headline
                 //% "Export/Import"
-                title: qsTrId("export-import-header") + " - TaskList"
+                title: "Export/Import" + " - TaskList"
             }
 
             SectionHeader {
                 //: headline for exports
                 //% "Export target"
-                text: qsTrId("export-header")
+                text: "Export target"
             }
 
             ComboBox {
                 id: storageTarget
                 //% "Choose target"
-                label: qsTrId("choose-target-label") + ":"
+                label: "Choose target" + ":"
 
                 menu: ContextMenu {
                     Repeater {
@@ -140,7 +140,7 @@ Page {
                 width: parent.width
                 //: placeholder message to remind the user that he has to enter a name for the data export
                 //% "Enter a file name for export"
-                placeholderText: qsTrId("export-file-placeholder")
+                placeholderText: "Enter a file name for export"
                 onTextChanged: composeExportPath()
                 validator: RegExpValidator { regExp: /^.{1,60}$/ }
                 inputMethodHints: Qt.ImhNoPredictiveText
@@ -156,7 +156,7 @@ Page {
                 id: exportButton
                 //: headline for the data export section
                 //% "Export data"
-                text: qsTrId("export-button")
+                text: "Export data"
                 width: parent.width * 0.75
                 anchors.horizontalCenter: parent.horizontalCenter
                 enabled: exportName.acceptableInput
@@ -167,9 +167,9 @@ Page {
                     if (ret) {
                         //: informational notification about the successful eported data
                         //% "Successfully exported all data."
-                        taskListWindow.pushNotification("INFO", qsTrId("data-export-success"),
+                        taskListWindow.pushNotification("INFO", "Successfully exported all data.",
                                                         //% "File path"
-                                                        qsTrId("data-export-path") + ": " + composeFullPath(exportName.text))
+                                                        "File path" + ": " + composeFullPath(exportName.text))
                         exportName.text = ""
                         getFiles()
                     }
@@ -179,7 +179,7 @@ Page {
             SectionHeader {
                 //: headline for imports
                 //% "Select a file to import"
-                text: qsTrId("select-file-header")
+                text: "Select a file to import"
             }
 
             ListModel {
@@ -235,7 +235,7 @@ Page {
                     width: parent.width / 2 - 0.5 * Theme.horizontalPageMargin
                     //: Button to delete the selected data file
                     //% "Delete file"
-                    text: qsTrId("delete-file-button")
+                    text: "Delete file"
                     enabled: selectedElementId !== -1
 
                     onClicked: {
@@ -255,7 +255,7 @@ Page {
                     width: parent.width / 2 - 0.5 * Theme.horizontalPageMargin
                     //: Button to import data form the selected file
                     //% "Import data"
-                    text: qsTrId("import-button")
+                    text: "Import data"
                     enabled: selectedElementId !== -1
 
                     onClicked: {
@@ -265,9 +265,9 @@ Page {
                         if (DB.importData(json)) {
                             //: informational notification about the successful eported data
                             //% "Successfully imported all data."
-                            taskListWindow.pushNotification("INFO", qsTrId("data-import-success"),
+                            taskListWindow.pushNotification("INFO", "Successfully imported all data.",
                                                             //% "Source file path"
-                                                            qsTrId("data-import-path") + ": " + composeFullPath(selectedFileName))
+                                                            "Source file path" + ": " + composeFullPath(selectedFileName))
                         }
                     }
                 }
@@ -276,7 +276,7 @@ Page {
             SectionHeader {
                 //: headline for information about import/export mechanism
                 //% "Information"
-                text: qsTrId("information-label")
+                text: "Information"
             }
 
             Label {
@@ -285,13 +285,13 @@ Page {
                 wrapMode: Text.WordWrap
                 //: Explanation of how importing and exporting data works and where the files are/have to be located.
                 //% "You can export your data to a json formatted file and import it from a json formatted file. Please keep in mind that ALL YOUR DATA containing tasks and lists is stored in a single file!"
-                text: qsTrId("export-import-description")
+                text: "You can export your data to a json formatted file and import it from a json formatted file. Please keep in mind that ALL YOUR DATA containing tasks and lists is stored in a single file!"
             }
 
             SectionHeader {
                 //: headline for the database purge
                 //% "Drop data (very destructive!!!)"
-                text: qsTrId("drop-database-header")
+                text: "Drop data (very destructive!!!)"
             }
 
             Label {
@@ -300,7 +300,7 @@ Page {
                 wrapMode: Text.WordWrap
                 //: warn user of destructive drop DB function
                 //% "CAUTION: This function will drop all your data immediately! So only use this if you know what you're doing!"
-                text: qsTrId("drop-database-warning")
+                text: "CAUTION: This function will drop all your data immediately! So only use this if you know what you're doing!"
                 color: "red"
             }
 
@@ -309,7 +309,7 @@ Page {
                 width: parent.width
                 //: let user confirm the database purge
                 //% "Yes, I know what I'm doing."
-                text: qsTrId("drop-database-confirmation")
+                text: "Yes, I know what I'm doing."
             }
 
             Button {
@@ -317,16 +317,16 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 //: Button to import data form the selected file
                 //% "Drop database"
-                text: qsTrId("drop-database-button")
+                text: "Drop database"
                 enabled: dropDBconfirmation.checked
 
                 onClicked: {
                     if (DB.dropDB())
                         //: informational notification about the successful dropped data tables
                         //% "Successfully dropped all data."
-                        taskListWindow.pushNotification("WARNING", qsTrId("drop-database-success"),
+                        taskListWindow.pushNotification("WARNING", "Successfully dropped all data.",
                                                         //% "Please restart TaskList to work with the new database."
-                                                        qsTrId("drop-database-detail"))
+                                                        "Please restart TaskList to work with the new database.")
                 }
             }
 

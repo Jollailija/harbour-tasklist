@@ -63,13 +63,13 @@ Page {
                 width: parent.width
                 //: headline for the tags page
                 //% "Manage tags"
-                title: qsTrId("tagspage-header") + " - TaskList"
+                title: "Manage tags" + " - TaskList"
             }
 
             SectionHeader {
                 //: headline to create new tags
                 //% "Add new tag"
-                text: qsTrId("new-tag-label")
+                text: "Add new tag"
             }
 
             TextField {
@@ -77,10 +77,10 @@ Page {
                 width: parent.width
                 //: fallback text if no name for a new tag is specified
                 //% "Enter unique tag name"
-                placeholderText: qsTrId("tagname-placeholder")
+                placeholderText: "Enter unique tag name"
                 //: hint how to confirm the new tag
                 //% "Press Enter/Return to add the new tag"
-                label: qsTrId("new-tag-confirmation-description")
+                label: "Press Enter/Return to add the new tag"
                 EnterKey.enabled: text.length > 2
                 // no whitespaces are allowed, 2 to 64 chars are allowed
                 validator: RegExpValidator { regExp: /^\S{2,64}$/ }
@@ -96,7 +96,7 @@ Page {
             SectionHeader {
                 //: headline for the user created tags
                 //% "Your tags"
-                text: qsTrId("tags-header")
+                text: "Your tags"
             }
         }
 
@@ -104,7 +104,7 @@ Page {
             enabled: tagList.count === 0
             //: fallback text if no tags are defined
             //% "no tags available"
-            text: qsTrId("no-tags-label")
+            text: "no tags available"
         }
 
         delegate: ListItem {
@@ -118,7 +118,7 @@ Page {
             function remove() {
                 //: remorse item when a tag is being deleted
                 //% "Deleting"
-                tagRemorse.execute(tagListItem, qsTrId("deleting-label") + " '" + tagListModel.get(index).tagName + "'", function() {
+                tagRemorse.execute(tagListItem, "Deleting" + " '" + tagListModel.get(index).tagName + "'", function() {
                     DB.removeTag(tagListModel.get(index).tagId)
                     tagListModel.remove(index)
                 }, taskListWindow.remorseOnDelete * 1000)
@@ -147,7 +147,7 @@ Page {
                 text: tagName
                 //: a label to inform the user how the changes on a tag can be saved
                 //% "Press Enter/Return to save changes"
-                label: qsTrId("save-changes-description")
+                label: "Press Enter/Return to save changes"
                 visible: false
                 EnterKey.enabled: text.length > 0
                 // no whitespaces are allowed, up to 64 chars are allowed
@@ -205,7 +205,7 @@ Page {
                     MenuItem {
                         //: context menu item to edit a tag
                         //% "Edit"
-                        text: qsTrId("edit-label")
+                        text: "Edit"
                         onClicked: {
                             // close contextmenu
                             tagContextMenu.hide()
@@ -218,7 +218,7 @@ Page {
                     MenuItem {
                         //: context menu item to delete a tag
                         //% "Delete"
-                        text: qsTrId("delete-label")
+                        text: "Delete"
                         onClicked: {
                             tagContextMenu.hide()
                             remove()

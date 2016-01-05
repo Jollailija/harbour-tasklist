@@ -60,10 +60,10 @@ Dialog {
             DialogHeader {
                 //: headline of application information page
                 //% "About"
-                title: qsTrId("about-label") + " - TaskList"
+                title: "About" + " - TaskList"
                 //: switch from About back to application
                 //% "Back"
-                acceptText: qsTrId("back-button")
+                acceptText: "Back"
             }
 
             Image {
@@ -83,14 +83,14 @@ Dialog {
             SectionHeader {
                 //: headline for application description
                 //% "Description"
-                text: qsTrId("description-label")
+                text: "Description"
             }
 
             Label {
                 //: TaskList description
                 //% "A small but mighty program to manage your daily tasks."
                 text: "This is a no-DropBox-fork made by jollailija. Contact me at jollailija@gmail.com"
-                + qsTrId("app-description")
+                +  "A small but mighty program to manage your daily tasks."
                 width: parent.width - Theme.horizontalPageMargin * 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
@@ -100,15 +100,15 @@ Dialog {
             SectionHeader {
                 //: headline for application licensing information
                 //% "Licensing"
-                text: qsTrId("licensing-label")
+                text: "Licensing"
             }
 
             Label {
                 //: Copyright and license information
                 //% "Copyright © by"
-                text: qsTrId("copyright-label") + " Thomas Amler\n" +
+                text: "Copyright © by" + " Thomas Amler\n" +
                       //% "License"
-                      qsTrId("license-label") + ": GPL v3"
+                      "License" + ": GPL v3"
                 width: parent.width - Theme.horizontalPageMargin * 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pixelSize: Theme.fontSizeSmall
@@ -117,7 +117,7 @@ Dialog {
             SectionHeader {
                 //: headline for application project information
                 //% "Project information"
-                text: qsTrId("project-header")
+                text: "Project information"
                 font.pixelSize: Theme.fontSizeSmall
             }
 
@@ -136,7 +136,7 @@ Dialog {
             SectionHeader {
                 //: headline for application contributors
                 //% "Contributors"
-                text: qsTrId("contributors-label")
+                text: "Contributors"
             }
 
             Repeater {

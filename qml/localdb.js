@@ -60,15 +60,15 @@ function nextMonth(unixTime) {
 
 var REPETITION_VARIANTS = [
     //% "none (tap to select)"
-    { key: "", name: qsTrId("noval-tap-label"), func: identity},
+    { key: "", name: "none (tap to select)", func: identity},
     //% "Daily"
-    { key: "every day", name: qsTrId("every-day-label"), func: nextDay },
+    { key: "every day", name: "Daily", func: nextDay },
     //% "Worksdays"
-    { key: "every workday", name: qsTrId("every-workday-label"), func: nextWorkday },
+    { key: "every workday", name: "Worksdays", func: nextWorkday },
     //% "Weekly"
-    { key: "every week", name: qsTrId("every-week-label"), func: nextWeek },
+    { key: "every week", name: "Weekly", func: nextWeek },
     //% "Monthly"
-    { key: "every month", name: qsTrId("every-month-label"), func: nextMonth }
+    { key: "every month", name: "Monthly", func: nextMonth }
 ];
 
 function getUnixTime() {

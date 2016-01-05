@@ -65,9 +65,9 @@ Dialog {
 
         header: DialogHeader {
             //% "Select tags"
-            title: qsTrId("select-tags-header")
+            title: "Select tags"
             //% "Confirm"
-            acceptText: qsTrId("confirm-button")
+            acceptText: "Confirm"
         }
 
         delegate: ListItem {

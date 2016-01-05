@@ -66,26 +66,26 @@ Page {
         if (count < 0)
             //: default string for task count of smart lists, when value is not available (n/a)
             //% "n/a"
-            return qsTrId("not-available")
+            return "n/a"
         var countStr = count > 999 ? "999+" : count.toString()
         // items can be tags
         if (listType === 5) {
             if (count === 1)
                 //: use %1 as a placeholder for the number of the existing tag, which should always be 1
                 //% "%1 tag"
-                return qsTrId("single-tag-count-label").arg(countStr)
+                return "%1 tag".arg(countStr)
             //: use %1 as a placeholder for the number of existing tags
             //% "%1 tags"
-            return qsTrId("tag-count-label").arg(countStr)
+            return "%1 tags".arg(countStr)
         }
         // or items can be tasks
         if (count === 1)
             //: use %1 as a placeholder for the number of tasks of the smart lists
             //% "%1 task"
-            return qsTrId("single-task-count-label").arg(countStr)
+            return "%1 task".arg(countStr)
         //: use %1 as a placeholder for the number of tasks of the smart lists
         //% "%1 tasks"
-        return qsTrId("task-count-label").arg(countStr)
+        return "%1 tasks".arg(countStr)
     }
 
     function focusListAddField(releaseFocus) {
@@ -172,13 +172,13 @@ Page {
                 width: parent.width
                 //: headline for overview of all lists
                 //% "Manage lists"
-                title: qsTrId("listpage-header") + " - " + appname
+                title: "Manage lists" + " - " + appname
             }
 
             SectionHeader {
                 //: headline for all automatic smart lists
                 //% "Smart lists"
-                text: qsTrId("smartlist-header")
+                text: "Smart lists"
                 visible: taskListWindow.smartListVisibility
             }
 
@@ -218,7 +218,7 @@ Page {
             SectionHeader {
                 //: headline above the text field where the user can add new lists
                 //% "Add new list"
-                text: qsTrId("new-list-header")
+                text: "Add new list"
             }
 
             TextField {
@@ -226,10 +226,10 @@ Page {
                 width: parent.width
                 //: the placeholder where the user can enter the name of a new list
                 //% "Enter unique list name"
-                placeholderText: qsTrId("list-name-placeholder")
+                placeholderText: "Enter unique list name"
                 //: a label to inform the user how to add the new list
                 //% "Press Enter/Return to add the new list"
-                label: qsTrId("new-list-confirmation-description")
+                label: "Press Enter/Return to add the new list"
                 // enable enter key if minimum list length has been reached
                 EnterKey.enabled: listAdd.text.length > 0
                 // set allowed chars and list length
@@ -245,9 +245,9 @@ Page {
                         } else {
                             // display notification if list already exists
                             //% "List could not be added!"
-                            taskListWindow.pushNotification("ERROR", qsTrId("list-add-error"),
+                            taskListWindow.pushNotification("ERROR", "List could not be added!",
                                                             //% "It already exists."
-                                                            qsTrId("list-add-error-detail"))
+                                                            "It already exists.")
                         }
                     }
                 }
@@ -264,7 +264,7 @@ Page {
             SectionHeader {
                 //: headline for the user created lists
                 //% "Your lists"
-                text: qsTrId("lists-header")
+                text: "Your lists"
             }
         }
 
@@ -279,7 +279,7 @@ Page {
             function remove() {
                 // run remove via a silica remorse item
                 //% "Deleting"
-                listRemorse.execute(listListItem, qsTrId("deleting-label") + " '" + listListModel.get(index).listname + "'", function() {
+                listRemorse.execute(listListItem, "Deleting" + " '" + listListModel.get(index).listname + "'", function() {
                     // if current list is deleted, change trigger variables to reload list and list name
                     if (taskListWindow.listid === listListModel.get(index).listid) {
                         taskListWindow.listid = taskListWindow.defaultlist
@@ -301,10 +301,10 @@ Page {
                 var listPropertiesString = "";
 
                 //% "default"
-                if (taskListWindow.defaultlist === listid) { listPropertiesArray.push(qsTrId("default-label")) }
+                if (taskListWindow.defaultlist === listid) { listPropertiesArray.push("default") }
 
                 //% "Cover"
-                if (taskListWindow.coverListSelection === 2 && taskListWindow.coverListChoose === listListModel.get(index).listid) { listPropertiesArray.push(qsTrId("cover-label")) }
+                if (taskListWindow.coverListSelection === 2 && taskListWindow.coverListChoose === listListModel.get(index).listid) { listPropertiesArray.push("Cover") }
 
                 for (var i = 0; i < listPropertiesArray.length; i++) {
                     if (i > 0)
@@ -372,7 +372,7 @@ Page {
                     text: listname
                     //: a label to inform the user how the changes on a list can be saved
                     //% "Press Enter/Return to save changes"
-                    label: qsTrId("save-changes-description")
+                    label: "Press Enter/Return to save changes"
                     visible: false
                     anchors {
                         left: parent.left
@@ -437,7 +437,7 @@ Page {
                     MenuItem {
                         //: context menu item to edit a list
                         //% "Edit"
-                        text: qsTrId("edit-label")
+                        text: "Edit"
                         onClicked: {
                             // close contextmenu
                             listContextMenu.hide()
@@ -451,7 +451,7 @@ Page {
                     MenuItem {
                         //: context menu item to set a list as the default list, which is shown at application start
                         //% "Set as Default list"
-                        text: qsTrId("set-default-list-label")
+                        text: "Set as Default list"
                         visible: (taskListWindow.defaultlist !== listid) ? true : false
                         onClicked: {
                             // close contextmenu
@@ -467,7 +467,7 @@ Page {
                     MenuItem {
                         //: context menu item to set a list as the default cover list
                         //% "Set as Cover list"
-                        text: qsTrId("set-cover-list-label")
+                        text: "Set as Cover list"
                         // only show if choose cover list is active and list is not the current chosen one
                         visible: (taskListWindow.coverListSelection === 2 && taskListWindow.coverListChoose !== listid) ? true : false
                         onClicked: {
@@ -483,7 +483,7 @@ Page {
 
                     MenuItem {
                         //% "Copy to clipboard"
-                        text: qsTrId("to-clipboard-label")
+                        text: "Copy to clipboard"
                         visible: pending > 0
                         onClicked: {
                             var data = DB.getSimpleList(listid)
@@ -491,15 +491,15 @@ Page {
                                 Clipboard.text = data
                             else
                                 //% "List not copied"
-                                taskListWindow.pushNotification("WARNING", qsTrId("list-not-copied-warning"),
+                                taskListWindow.pushNotification("WARNING", "List not copied",
                                                                 //% "List is empty."
-                                                                qsTrId("list-empty-description"))
+                                                                "List is empty.")
                         }
                     }
 
                     MenuItem {
                         //% "Delete"
-                        text: qsTrId("delete-label")
+                        text: "Delete"
                         // default list must not be deleted
                         visible: (taskListWindow.defaultlist !== listid) ? true : false
                         onClicked: {

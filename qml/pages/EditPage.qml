@@ -45,14 +45,14 @@ Dialog {
     function composeDueDate() {
         if (!dueDateIsPresent())
 	    //% "none (tap to select)"
-            return qsTrId("noval-tap-label")
+            return "none (tap to select)"
         return taskListWindow.humanReadableDueDate(params.dueDate)
     }
 
     function humanTags() {
         if (tags.length === 0)
 	    //% "none (tap to select)"
-            return qsTrId("noval-tap-label")
+            return "none (tap to select)"
         return tags
     }
 
@@ -69,10 +69,10 @@ Dialog {
             // display notification if task already exists on the selected list
             //: informing the user that a new task already exists on the selected list
             //% "Task could not be saved!"
-            taskListWindow.pushNotification("WARNING", qsTrId("task-not-saved-error"),
+            taskListWindow.pushNotification("WARNING", "Task could not be saved!",
                                             //: detailed information why the task modifications haven't been saved
                                             //% "It already exists on the selected list."
-                                            qsTrId("task-not-saved-detail"))
+                                            "It already exists on the selected list.")
         } else {
             task.errorHighlight = false
         }
@@ -82,10 +82,10 @@ Dialog {
             dueDate.highlighted = true
             ok = false
 	    //% "Task could not be saved!"
-            taskListWindow.pushNotification("WARNING", qsTrId("task-not-saved-error"),
+            taskListWindow.pushNotification("WARNING", "Task could not be saved!",
                                             //: detailed information why the task modifications can't be saved
 	                                    //% "A due date is required for the repetition."
-                                            qsTrId("repitition-resuires-due-decription"))
+                                            "A due date is required for the repetition.")
         } else {
             dueDate.highlighted = false
         }
@@ -149,16 +149,16 @@ Dialog {
             DialogHeader {
                 //: headline of the editing dialog of a task
                 //% "Edit task"
-                title: qsTrId("edit-task-label")
+                title: "Edit task"
                 //: save the currently made changes to the task
                 //% "Save"
-                acceptText: qsTrId("save-button")
+                acceptText: "Save"
             }
 
             SectionHeader {
                 //: headline for the section with the task attributes
                 //% "Task properties"
-                text: qsTrId("task-properties-label")
+                text: "Task properties"
             }
 
             TextField {
@@ -167,9 +167,9 @@ Dialog {
                 text: params.task
                 //: information how the currently made changes can be saved
                 //% "Task already exists on this list!"
-                label: errorHighlight ? qsTrId("task-exists-on-list-error") :
+                label: errorHighlight ? "Task already exists on this list!" :
                                         //% "Task name"
-                                        qsTrId("task-name-label")
+                                        "Task name"
                 // set allowed chars and task length
                 validator: RegExpValidator { regExp: /^([^\'|\;|\"]){,60}$/ }
                 onTextChanged: {
@@ -186,9 +186,9 @@ Dialog {
                 anchors.horizontalCenter: parent.Center
                 //: choose if this task is pending or done
                 //% "task is open"
-                text: taskListWindow.statusOpen(params.taskstatus) ? qsTrId("task-open-label") :
+                text: taskListWindow.statusOpen(params.taskstatus) ? "task is open" :
                                                            //% "task is done"
-                                                           qsTrId("task-done-label")
+                                                           "task is done"
                 checked: taskListWindow.statusOpen(params.taskstatus)
             }
 
@@ -197,7 +197,7 @@ Dialog {
                 anchors.left: parent.left
                 //: option to change the list where the task should be located
                 //% "List"
-                label: qsTrId("list-label") + ":"
+                label: "List" + ":"
 
                 menu: ContextMenu {
                     Repeater {
@@ -216,7 +216,7 @@ Dialog {
                 anchors.left: parent.left
                 //: select the tasks priority
                 //% "Priority"
-                label: qsTrId("priority-label") + ":"
+                label: "Priority" + ":"
 
                 menu: ContextMenu {
                     Repeater {
@@ -235,7 +235,7 @@ Dialog {
             SectionHeader {
                 //: headline for the date and time properties of the task
                 //% "Dates"
-                text: qsTrId("dates-label")
+                text: "Dates"
             }
 
             Row {
@@ -247,7 +247,7 @@ Dialog {
                     anchors.verticalCenter: clearButton.verticalCenter
                     //: select the due date for a task
                     //% "Due"
-                    label: qsTrId("due-date-label") + ":"
+                    label: "Due" + ":"
                     value: composeDueDate()
 
                     onClicked: {
@@ -284,7 +284,7 @@ Dialog {
                 id: repeat
                 width: parent.width
 	        //% "Repeat"
-                label: qsTrId("repeat-label") + ":"
+                label: "Repeat" + ":"
 
                 menu: ContextMenu {
                     Repeater {
@@ -304,20 +304,20 @@ Dialog {
                 anchors.horizontalCenter: parent.horizontalCenter
                 //: displays the date when the task has been created by the user
                 //% "Created"
-                text: qsTrId("created-date-label") + ": " + Qt.formatDateTime(new Date(params.creation)).toLocaleString(Qt.locale())
+                text: "Created" + ": " + Qt.formatDateTime(new Date(params.creation)).toLocaleString(Qt.locale())
             }
 
             SectionHeader {
                 //: headline for the tags section
                 //% "Tags"
-                text: qsTrId("tags-label")
+                text: "Tags"
             }
 
             ValueButton {
                 id: editTags
                 //: label for the tags field
                 //% "Tags"
-                label: qsTrId("tags-label") + ":"
+                label: "Tags" + ":"
                 value: humanTags()
                 property bool modified: false
 
@@ -335,7 +335,7 @@ Dialog {
             SectionHeader {
                 //: headline for the section where notes for the task can be saved
                 //% "Notes"
-                text: qsTrId("notes-label")
+                text: "Notes"
             }
 
             TextArea {
@@ -343,7 +343,7 @@ Dialog {
                 width: parent.width
                 //: textfield to enter notes
                 //% "Enter your notes or description here"
-                placeholderText: qsTrId("notes-placeholder")
+                placeholderText: "Enter your notes or description here"
                 focus: false
                 text: params.notes || ""
             }

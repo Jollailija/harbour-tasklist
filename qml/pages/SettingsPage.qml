@@ -35,17 +35,17 @@ Dialog {
         case 0:
             //: text to be shown if the slider is set to
             //% "deactivated"
-            result = qsTrId("deactivated-label")
+            result = "deactivated"
             break
         case 1:
             //: '%1' will be replaced by the amount of seconds of the slider, which is always 1 in this case
             //% "%1 second"
-            result = qsTrId("single-second-count-label").arg(time)
+            result = "%1 second".arg(time)
             break
         default:
             //: '%1' will be replaced by the amount of seconds of the slider
             //% "%1 seconds"
-            result = qsTrId("second-count-label").arg(time)
+            result = "%1 seconds".arg(time)
             break
         }
 
@@ -59,7 +59,7 @@ Dialog {
     Component.onCompleted: {
         //: label for a settings "system default" option
         //% "System default"
-        languages.append({ lang: "system_default",  name: qsTrId("system-default-label") })
+        languages.append({ lang: "system_default",  name: "System default" })
         languages.append({ lang: "ca",              name: "Català" })
         languages.append({ lang: "cs_CZ",           name: "Čeština" })
         languages.append({ lang: "da_DK",           name: "Dansk" })
@@ -92,7 +92,7 @@ Dialog {
         }
         if (!found) {
             //% "Other"
-            languages.append({ lang: language, name: qsTrId("other-label") })
+            languages.append({ lang: language, name: "Other" })
             languageBox.currentIndex = languages.count - 1
             languageBox.currentItem = languageBox.menu.children[languageBox.currentIndex]
         }
@@ -146,16 +146,16 @@ Dialog {
             DialogHeader {
                 //: headline for all user options
                 //% "Settings"
-                title: qsTrId("settings-label") + " - TaskList"
+                title: "Settings" + " - TaskList"
                 //: saves the current made changes to user options
                 //% "Save"
-                acceptText: qsTrId("save-button")
+                acceptText: "Save"
             }
 
             SectionHeader {
                 //: headline for cover (application state when app is in background mode) options
                 //% "Cover options"
-                text: qsTrId("cover-options-header")
+                text: "Cover options"
             }
 
             ComboBox {
@@ -163,16 +163,16 @@ Dialog {
                 width: parent.width
                 //: user option to choose which list should be shown on the cover
                 //% "Cover list"
-                label: qsTrId("cover-list-label") + ":"
+                label: "Cover list" + ":"
                 currentIndex: taskListWindow.coverListSelection
 
                 menu: ContextMenu {
                     //% "Default list"
-                    MenuItem { text: qsTrId("default-list-label") }
+                    MenuItem { text: "Default list" }
                     //% "Selected list"
-                    MenuItem { text: qsTrId("selected-list-label") }
+                    MenuItem { text: "Selected list" }
                     //% "Choose in list management"
-                    MenuItem { text: qsTrId("choose-cover-label") }
+                    MenuItem { text: "Choose in list management" }
                 }
             }
 
@@ -181,30 +181,30 @@ Dialog {
                 width: parent.width
                 //: user option to choose how the tasks should be ordered on the cover
                 //% "Cover task order"
-                label: qsTrId("cover-order-label") + ":"
+                label: "Cover task order" + ":"
                 currentIndex: taskListWindow.coverListOrder
 
                 menu: ContextMenu {
                     //% "Last updated first"
-                    MenuItem { text: qsTrId("last-updated-label") }
+                    MenuItem { text: "Last updated first" }
                     //% "Sort by name ascending"
-                    MenuItem { text: qsTrId("name-asc-label") }
+                    MenuItem { text: "Sort by name ascending" }
                     //% "Sort by name descending"
-                    MenuItem { text: qsTrId("name-desc-label") }
+                    MenuItem { text: "Sort by name descending" }
                 }
             }
 
             SectionHeader {
                 //: headline for general options
                 //% "General options"
-                text: qsTrId("general-options-label")
+                text: "General options"
             }
 
             ComboBox {
                 id: languageBox
                 width: parent.width
                 //% "Language"
-                label: qsTrId("language-label") + ":"
+                label: "Language" + ":"
 
                 menu: ContextMenu {
                     Repeater {
@@ -225,7 +225,7 @@ Dialog {
                 width: parent.width
                 x: Theme.paddingLarge
                 //% "Language will be changed after app restart."
-                text: qsTrId("languagechange-needs-restart-description")
+                text: "Languages don't work in this fork ATM. I'll fix those soon. -jollailija"
                 wrapMode: Text.WordWrap
                 visible: false
                 font.pixelSize: Theme.fontSizeExtraSmall
@@ -237,23 +237,23 @@ Dialog {
                 width: parent.width
                 //: user option to choose what should be shown at application start
                 //% "Start page"
-                label: qsTrId("startpage-label") + ":"
+                label: "Start page" + ":"
                 currentIndex: taskListWindow.startPage
 
                 menu: ContextMenu {
                     //% "Default list"
-                    MenuItem { text: qsTrId("default-list-label") }
+                    MenuItem { text: "Default list" }
                     //% "List overview"
-                    MenuItem { text: qsTrId("list-overview-label") }
+                    MenuItem { text: "List overview" }
                     //% "Minimize to cover"
-                    MenuItem { text: qsTrId("minimize-label") }
+                    MenuItem { text: "Minimize to cover" }
                 }
             }
 
             SectionHeader {
                 //: headline for task options
                 //% "Task options"
-                text: qsTrId("task-options-label")
+                text: "Task options"
             }
 
             TextSwitch {
@@ -261,7 +261,7 @@ Dialog {
                 width: parent.width
                 //: user option to choose whether pending tasks should be marked with a checked or not checked bullet
                 //% "Open task appearance"
-                text: qsTrId("open-task-appearance-label")
+                text: "Open task appearance"
                 checked: taskListWindow.taskOpenAppearance
             }
 
@@ -270,7 +270,7 @@ Dialog {
                 width: parent.width
                 //: user option to directly jump back to the input field after a new task has been added by the user
                 //% "Refocus task add field"
-                text: qsTrId("refocus-label")
+                text: "Refocus task add field"
                 checked: taskListWindow.backFocusAddTask
             }
 
@@ -280,26 +280,26 @@ Dialog {
                 width: parent.width
                 //: user option to select closed tasks appearance
                 //% "Done tasks"
-                label: qsTrId("done-task-label") + ":"
+                label: "Done tasks" + ":"
                 currentIndex: taskListWindow.closedTaskAppearance
 
                 menu: ContextMenu {
                     //: option to not show done tasks
                     //% "Hidden"
-                    MenuItem { text: qsTrId("hidden-label") }
+                    MenuItem { text: "Hidden" }
                     //: option to how done tasks unselected
                     //% "Status change"
-                    MenuItem { text: qsTrId("status-change-label") }
+                    MenuItem { text: "Status change" }
                     //: option to show done tasks as striked through items
                     //% "Striked through"
-                    MenuItem { text: qsTrId("striked-through-label") }
+                    MenuItem { text: "Striked through" }
                 }
             }
 
             SectionHeader {
                 //: headline for list options
                 //% "List options"
-                text: qsTrId("list-options-label")
+                text: "List options"
             }
 
             TextSwitch {
@@ -307,7 +307,7 @@ Dialog {
                 width: parent.width
                 //: user option to decide whether the smart lists (lists which contain tasks with specific attributes, for example new, done and pending tasks)
                 //% "Show smart lists"
-                text: qsTrId("show-smartlists-label")
+                text: "Show smart lists"
                 checked: taskListWindow.smartListVisibility
             }
 
@@ -317,40 +317,40 @@ Dialog {
                 width: parent.width
                 //: user option to select the time period how long tasks are recognized as new
                 //% "New task period"
-                label: qsTrId("new-task-period-label") + ":"
+                label: "New task period" + ":"
                 currentIndex: taskListWindow.recentlyAddedOffset
 
                 menu: ContextMenu {
                     //: use %1 as a placeholder for the number of hours
                     //% "%1 hours"
-                    MenuItem { text: qsTrId("hours-count-label").arg(3) }
+                    MenuItem { text: "%1 hours".arg(3) }
                     //% "%1 hours"
-                    MenuItem { text: qsTrId("hours-count-label").arg(6) }
+                    MenuItem { text: "%1 hours".arg(6) }
                     //% "%1 hours"
-                    MenuItem { text: qsTrId("hours-count-label").arg(12) }
+                    MenuItem { text: "%1 hours".arg(12) }
                     //: use %1 as a placeholder for the number of the day, which is currently static "1"
                     //% "%1 day"
-                    MenuItem { text: qsTrId("single-day-count-label").arg(1) }
+                    MenuItem { text: "%1 day".arg(1) }
                     //: use %1 as a placeholder for the number of days
                     //% "%1 days"
-                    MenuItem { text: qsTrId("day-count-label").arg(2) }
+                    MenuItem { text: "%1 days".arg(2) }
                     //: use %1 as a placeholder for the number of the week, which is currently static "1"
                     //% "%1 week"
-                    MenuItem { text: qsTrId("single-week-count-label").arg(1) }
+                    MenuItem { text: "%1 week".arg(1) }
                 }
             }
 
             SectionHeader {
                 //: headline for remorse (a Sailfish specific interaction element to stop a former started process) options
                 //% "Remorse options"
-                text: qsTrId("remorse-options-label")
+                text: "Remorse options"
             }
 
             Slider {
                 id: remorseOnDelete
                 width: parent.width
                 //% "on Delete"
-                label: qsTrId("remorse-delete-label")
+                label: "on Delete"
                 minimumValue: 0
                 maximumValue: 10
                 stepSize: 1
@@ -362,7 +362,7 @@ Dialog {
                 id: remorseOnMark
                 width: parent.width
                 //% "on Mark task"
-                label: qsTrId("remorse-mark-label")
+                label: "on Mark task"
                 minimumValue: 0
                 maximumValue: 10
                 stepSize: 1
@@ -374,7 +374,7 @@ Dialog {
                 id: remorseOnMultiAdd
                 width: parent.width
                 //% "on Adding multiple tasks"
-                label: qsTrId("remorse-addmultiple-label")
+                label: "on Adding multiple tasks"
                 minimumValue: 0
                 maximumValue: 10
                 stepSize: 1

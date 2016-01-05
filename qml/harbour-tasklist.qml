@@ -56,17 +56,17 @@ ApplicationWindow {
     //: names of the automatic smart lists (lists which contain tasks with specific attributes, for example new, done and pending tasks)
     property variant smartListNames: [
         //% "Done"
-        qsTrId("done-label"),
+        "Done",
         //% "Pending"
-        qsTrId("pending-label"),
+        "Pending",
         //% "New"
-        qsTrId("new-label"),
+        "New",
         //% "Today"
-        qsTrId("today-label"),
+        "Today",
         //% "Tomorrow"
-        qsTrId("tomorrow-label"),
+        "Tomorrow",
         //% "Tags"
-        qsTrId("tags-label")
+        "Tags"
     ]
     property bool coverActionMultiple: listOfLists.length > 1
     property bool coverActionSingle: !coverActionMultiple
@@ -108,10 +108,10 @@ ApplicationWindow {
             allowedOrientations: Orientation.All
             //: text of the button to migrate the old to the new database format
             //% "Upgrade"
-            property string dbUpgradeText: qsTrId("upgrade-label")
+            property string dbUpgradeText: "Upgrade"
             //: text of the button to delete the old database and start overleo
             //% "Delete"
-            property string dbDeleteText: qsTrId("delete-label")
+            property string dbDeleteText: "Delete"
 
             SilicaFlickable {
                 id: migrateFlickable
@@ -127,16 +127,16 @@ ApplicationWindow {
                     DialogHeader {
                         //: Stop database upgrade dialog
                         //% "Exit"
-                        acceptText: qsTrId("exit-label")
+                        acceptText: "Exit"
                         //: get user's attention before starting database upgrade
                         //% "Action required"
-                        title: qsTrId("upgradedialog-header")
+                        title: "Action required"
                     }
 
                     SectionHeader {
                         //: headline for the informational upgrade dialog part
                         //% "Information"
-                        text: qsTrId("information-label")
+                        text: "Information"
                     }
 
                     Label {
@@ -144,10 +144,10 @@ ApplicationWindow {
                         anchors.horizontalCenter: parent.horizontalCenter
                         //: first part of the database upgrade description
                         //% "A database from a previous version of TaskList has been found. Old databases are not supported."
-                        text: qsTrId("upgrade-description-part1") + "\n" +
+                        text: "A database from a previous version of TaskList has been found. Old databases are not supported." + "\n" +
                               //: second part of the database upgrade description; %1 and %2 are the placeholders for the 'Upgrade' and 'Delete' options of the upgrade Dialog
                               //% " Press '%1' to migrate the old database into the new format or '%2' to delete the old database and start with a clean new database."
-                              qsTrId("upgrade-description-part2").arg(dbUpgradeText).arg(dbDeleteText)
+                              " Press 'Upgrade' to migrate the old database into the new format or 'Delete' to delete the old database and start with a clean new database."
                         wrapMode: Text.WordWrap
                         color: Theme.highlightColor
                         font.bold: true
@@ -156,7 +156,7 @@ ApplicationWindow {
                     SectionHeader {
                         //: headline for the option section of the upgrade dialog
                         //% "Choose an option"
-                        text: qsTrId("option-header")
+                        text: "Choose an option"
                     }
 
                     Label {
@@ -164,7 +164,7 @@ ApplicationWindow {
                         anchors.horizontalCenter: parent.horizontalCenter
                         //: user has the possibility to choose the database upgrade or delete the old database
                         //% "Please select an action to proceed."
-                        text: qsTrId("choose-option-label")
+                        text: "Please select an action to proceed."
                         wrapMode: Text.WordWrap
                     }
 
@@ -181,7 +181,7 @@ ApplicationWindow {
                             width: parent.width * 0.75
                             //: hint which is the recommended upgrade option
                             //% "recommended"
-                            text: dbUpgradeText + " (" + qsTrId("recommended-label") + ")"
+                            text: dbUpgradeText + " (" + "recommended" + ")"
                             onClicked: {
                                 if (DB.replaceOldDB(true))
                                     pageStack.replace(initialTaskPage)
@@ -237,15 +237,15 @@ ApplicationWindow {
         if (dateString === today.toDateString())
             //: due date string for today
             //% "Today"
-            return qsTrId("today-label");
+            return "Today";
         if (dateString === tomorrow.toDateString())
             //: due date string for tomorrow
             //% "Tomorrow"
-            return qsTrId("tomorrow-label");
+            return "Tomorrow";
         if (dateString === yesterday.toDateString())
             //: due date string for yesterday
             //% "Yesterday"
-            return qsTrId("yesterday-label");
+            return "Yesterday";
 
         return date.toLocaleDateString(Qt.locale(), Locale.ShortFormat);
     }

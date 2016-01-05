@@ -31,35 +31,35 @@ Page {
     Component.onCompleted: {
         //: task page header of help page
         //% "Task page"
-        helpModel.append({"sectionid": qsTrId("taskpage-header"),
+        helpModel.append({"sectionid": "Task page",
                              //% "New task is flashing"
-                             "label": qsTrId("new-task-flashing-label"),
+                             "label": "New task is flashing",
                              //% "Tap on a newly added task while it's still flashing. This leads you directly to the Edit page where you can change the details of your task."
-                             "description": qsTrId("new-task-flashing-description")})
-        helpModel.append({"sectionid": qsTrId("taskpage-header"),
+                             "description": "Tap on a newly added task while it's still flashing. This leads you directly to the Edit page where you can change the details of your task."})
+        helpModel.append({"sectionid": "Task page",
                              //% "Add multiple tasks"
-                             "label": qsTrId("add-multiple-tasks-label"),
+                             "label": "Add multiple tasks",
                              //% "By Copying multiple lines e.g. from an e-mail and pasting those lines to the text field, you can add multiple tasks at once. Each line defines an own task."
-                             "description": qsTrId("add-multiple-tasks-description")})
+                             "description": "By Copying multiple lines e.g. from an e-mail and pasting those lines to the text field, you can add multiple tasks at once. Each line defines an own task."})
         //: tag page header of help page
         //% "Tag Page"
-        helpModel.append({"sectionid": qsTrId("tagpage-header"),
+        helpModel.append({"sectionid": "Tag Page",
                              //% "Manage Tags"
-                             "label": qsTrId("tag-management-label"),
+                             "label": "Manage Tags",
                              //% "Managing tags is currently only possible if you press on the Tag smartlist on the List page. We are examining to rearrange this in the future."
-                             "description": qsTrId("tag-management-description")})
+                             "description": "Managing tags is currently only possible if you press on the Tag smartlist on the List page. We are examining to rearrange this in the future."})
         //: keyboard header of help page
         //% "Keyboard Support"
-        helpModel.append({"sectionid": qsTrId("keyboard-header"),
+        helpModel.append({"sectionid": "Keyboard Support",
                              //% "Jump to text field"
-                             "label": qsTrId("keyboard-tab-label"),
+                             "label": "Jump to text field",
                              //% "By pressing Tab on an attached keyboard you can jump into or out of the text fields."
-                             "description": qsTrId("keyboard-tab-description")})
-        helpModel.append({"sectionid": qsTrId("keyboard-header"),
+                             "description": "By pressing Tab on an attached keyboard you can jump into or out of the text fields."})
+        helpModel.append({"sectionid": "Keyboard Support",
                              //% "Jump to next/previous list"
-                             "label": qsTrId("keyboard-arrows-lr-label"),
+                             "label": "Jump to next/previous list",
                              //% "If the text field on the Task page is NOT focused you can switch between lists by pressing the right (next list) or left (previous list) arrows."
-                             "description": qsTrId("keyboard-arrows-lr-description")})
+                             "description": "If the text field on the Task page is NOT focused you can switch between lists by pressing the right (next list) or left (previous list) arrows."})
     }
 
     VerticalScrollDecorator { flickable: helpPageList }
@@ -76,14 +76,14 @@ Page {
             PageHeader {
                 //: headline for the help page
                 //% "Help"
-                title: qsTrId("helppage-header") + " - " + appname
+                title: "Help" + " - " + appname
             }
 
             Label {
                 width: parent.width - 2 * Theme.horizontalPageMargin
                 anchors.horizontalCenter: parent.horizontalCenter
                 //% "This page describes all hidden and not apparent features."
-                text: qsTrId("helppage-description")
+                text: "This page describes all hidden and not apparent features."
                 wrapMode: Text.WordWrap
             }
         }

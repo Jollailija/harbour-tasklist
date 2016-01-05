@@ -30,19 +30,19 @@ OTHER_FILES += qml/harbour-tasklist.qml \
     qml/pages/TagDialog.qml \
     qml/pages/HelpPage.qml
 
-localization.files = localization
-localization.path = /usr/share/$${TARGET}
+#localization.files = localization
+#localization.path = /usr/share/$${TARGET}
 
-INSTALLS += localization
+#INSTALLS += localization
 
-CONFIG += sailfishapp_i18n_idbased
+#CONFIG += sailfishapp_i18n_idbased
 
 lupdate_only {
     SOURCES = qml/*.qml \
               qml/*.js \
               qml/pages/*.qml \
               qml/pages/sync/*.qml
-    TRANSLATIONS = localization-sources/*.ts
+    #TRANSLATIONS = localization-sources/*.ts
 }
 
 HEADERS += \

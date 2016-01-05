@@ -1,7 +1,7 @@
 About this fork/branch
 ================
 This branch is "maintained" by jollailija (contact: jollailija [at] gmail.com)  
-I have removed the DropBox support completely. However, all other functions (except translations, I broke those) including exporting and importing locally should work.
+I have removed the DropBox support completely. However, all other functions (except translations, I'll fix them soon (TM)) including exporting and importing locally should work.
 
 Who is this for?  
 Well, those who don't like cloud services or just want to build the app without the API key.  
